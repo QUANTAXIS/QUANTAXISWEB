@@ -30,10 +30,16 @@ import tornado.web
 from tornado.options import define, options
 define("port", default=8000, help="run on the given port", type=int)
 
+
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):
         greeting = self.get_argument('greeting', 'Hello')
+        # Tornado的RequestHandler类有一系列有用的内建方法，包括get_argument，我们在这里从一个查询字符串中取得参数greeting的值。
+        # （如果这个参数没有出现在查询字符串中，Tornado将使用get_argument的第二个参数作为默认值。）
         self.write(greeting + ', friendly user!')
+        # RequestHandler的另一个有用的方法是write，它以一个字符串作为函数的参数，并将其写入到HTTP响应中。
+        # 在这里，我们使用请求中greeting参数提供的值插入到greeting中，并写回到响应中。
+
 
 if __name__ == "__main__":
     tornado.options.parse_command_line()
