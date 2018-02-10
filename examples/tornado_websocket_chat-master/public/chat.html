@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MSG</title>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/static/msg/css/msg.css">
+</head>
+<body>
+
+
+<nav class="navbar fixed top v-center">
+  <div class="container w-100 margin-0">
+    <div class="row"">
+      <div class="col-xs-6">
+        <div class="flex-row">
+          <a class="navLink" href="/">MSG</a>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="row-reverse">
+          <a class="navLink" href="/disconnect">END</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<div id="vueChat">
+  <div id="chatWindow" style="overflow-y: scroll; margin-top: 50px; margin-bottom: 50px;" v-bind:style="styleObject">
+    <div class="container">
+      <div v-for="message in messages">
+        <p class="message">{{ message['username'] }} > {{ message['text'] }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="navbar fixed bottom v-center">
+  <div class="container w-100">
+    <form id="messageForm" autocomplete="off">
+      <div class="row">
+        <div class="col-xs-9 col-sm-10">
+          <input class="input w-100" type="text" name="message" autofocus="true">
+        </div>
+        <div class="col-xs-3 col-sm-2">
+          <button class="btn w-100">SEND</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<script type="text/javascript" src="/static/msg/js/msg.js"></script>
+</body>
+</html>

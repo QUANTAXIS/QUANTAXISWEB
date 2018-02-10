@@ -1,0 +1,3 @@
+messages = []
+clients = set()
+users = {}
