@@ -34,7 +34,7 @@ window.addEventListener("resize", function() {
 });
 
 
-var socket = new WebSocket("ws://127.0.0.1:8000/websocket");
+var socket = new WebSocket("ws://127.0.0.1:8004/websocket");
 
 
 socket.onopen = function() {

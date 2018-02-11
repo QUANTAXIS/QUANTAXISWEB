@@ -12,7 +12,7 @@ config = {
     "debug": keys.DEBUG,
     "login_url": "/",
     "host": keys.HOST,
-    "port": 8000,
+    "port": 8004,
     "app_dir": APP_DIR,
     "static_path": STATIC_PATH
 }
