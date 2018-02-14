@@ -8,12 +8,14 @@ import pymongo
 from tornado.options import define, options
 define("port", default=8000, help="run on the given port", type=int)
 
+
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [(r"/(\w+)", WordHandler)]
         conn = pymongo.MongoClient("localhost", 27017)
         self.db = conn["example"]
         tornado.web.Application.__init__(self, handlers, debug=True)
+
 
 class WordHandler(tornado.web.RequestHandler):
     def get(self, word):
@@ -25,6 +27,7 @@ class WordHandler(tornado.web.RequestHandler):
         else:
             self.set_status(404)
             self.write({"error": "word not found"})
+
 
 if __name__ == "__main__":
     tornado.options.parse_command_line()
