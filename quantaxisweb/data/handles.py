@@ -1,6 +1,7 @@
 # coding:utf-8
 
 import json
+
 import tornado
 from tornado.web import Application, RequestHandler, authenticated
 from tornado.websocket import WebSocketHandler
@@ -24,6 +25,8 @@ class StockdayHandler(BaseHandler):
     def get(self, data):
 
         self.write("Hello, world {}".format(data))
+
+
 if __name__ == "__main__":
     app = Applications()
     app.listen(8829)
