@@ -36,12 +36,12 @@ class SIMULATED(WebSocketHandler):
         self.write_message('start')
 
     def on_message(self, message):
-        if len(str(message))==6:
-            data=QA.QA_util_to_json_from_pandas(QA.QA_fetch_stock_day(message,'2010-01-01','2017-12-31','pd'))
+        if len(str(message)) == 6:
+            data = QA.QA_util_to_json_from_pandas(
+                QA.QA_fetch_stock_day(message, '2017-01-01', '2017-12-31', 'pd'))
             for item in data:
                 self.write_message(item)
-                time.sleep(1)
-        
+                time.sleep(0.2)
 
     def on_close(self):
         print('connection close')
