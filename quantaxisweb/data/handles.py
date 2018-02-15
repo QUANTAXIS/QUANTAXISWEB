@@ -17,14 +17,29 @@ class BaseHandler(RequestHandler):
 
 class Applications(Application):
     def __init__(self):
-        handlers = [(r"/(\w+)", StockdayHandler)]
+        handlers = [(r"/stock/day", StockdayHandler)]
         Application.__init__(self, handlers, debug=True)
+
+#/(\w*)
 
 
 class StockdayHandler(BaseHandler):
-    def get(self, data):
+    def get(self):
+        print(self.request.arguments)
 
-        self.write("Hello, world {}".format(data))
+        code = self.request.arguments.get('code', '000001')
+        start = str(self.request.arguments.get('start', '2017-01-01'))
+        end = str(self.request.arguments.get('end', '2017-12-31'))
+        print(code[0].decode('utf-8'))
+        print(start)
+        print(end)
+        data = QA_fetch_stock_day(code[0].decode(
+            'utf-8'), start, end, format='json')
+
+        print(data)
+
+
+        self.write({'result':data,'status':200})
 
 
 if __name__ == "__main__":
