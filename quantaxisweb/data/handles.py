@@ -30,16 +30,11 @@ class StockdayHandler(BaseHandler):
         code = self.request.arguments.get('code', '000001')
         start = str(self.request.arguments.get('start', '2017-01-01'))
         end = str(self.request.arguments.get('end', '2017-12-31'))
-        print(code[0].decode('utf-8'))
+        data = QA_fetch_stock_day(code[0].decode('utf-8'), start, end, format='json')
         print(start)
-        print(end)
-        data = QA_fetch_stock_day(code[0].decode(
-            'utf-8'), start, end, format='json')
-
         print(data)
 
-
-        self.write({'result':data,'status':200})
+        self.write({'result': data, 'status': 200})
 
 
 if __name__ == "__main__":
