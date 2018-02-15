@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <script type="text/javascript">  
+        var ws = new WebSocket("ws://localhost:8010/simulate");
+        ws.onmessage = function (event) {
+            console.log(event.data);
+            //alert(event.data)
+        }
+        function send() {
+            ws.send(document.getElementById('chat').value);
+        }  
+    </script>
+</head>
+
+<body>
+    <div>
+        input the code
+        <input id="chat">
+        <button onclick="send()">send</button>
+    </div>
+</body>
+
+</html>
