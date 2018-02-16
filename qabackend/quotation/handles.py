@@ -38,7 +38,7 @@ class SIMULATED(WebSocketHandler):
     def on_message(self, message):
         if len(str(message)) == 6:
             data = QA.QA_util_to_json_from_pandas(
-                QA.QA_fetch_stock_day(message, '2017-01-01', '2017-12-31', 'pd'))
+                QA.QA_fetch_stock_day(message, '2017-01-01', '2017-01-05', 'pd'))
             for item in data:
                 self.write_message(item)
                 time.sleep(0.1)
