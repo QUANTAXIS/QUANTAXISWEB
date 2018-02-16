@@ -18,6 +18,11 @@ class BaseHandler(RequestHandler):
 
 class StockdayHandler(BaseHandler):
     def get(self):
+        """
+        采用了get_arguents来获取参数
+        默认参数: code-->000001 start-->2017-01-01 end-->today
+        
+        """
         code = self.get_argument('code', default='000001')
         start = self.get_argument('start', default='2017-01-01')
         end = self.get_argument('end', default=str(datetime.date.today()))
