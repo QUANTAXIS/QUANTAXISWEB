@@ -41,7 +41,7 @@ class SIMULATED(WebSocketHandler):
                 QA.QA_fetch_stock_day(message, '2017-01-01', '2017-12-31', 'pd'))
             for item in data:
                 self.write_message(item)
-                time.sleep(0.2)
+                time.sleep(0.1)
 
     def on_close(self):
         print('connection close')

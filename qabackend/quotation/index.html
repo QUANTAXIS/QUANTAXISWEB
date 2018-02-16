@@ -4,8 +4,9 @@
     <script type="text/javascript">  
         var ws = new WebSocket("ws://localhost:8010/simulate");
         ws.onmessage = function (event) {
-            console.log(event.data);
-            //alert(event.data)
+            var div1=document.createElement("div");  
+            div1.innerHTML = event.data;
+            document.body.appendChild(div1);
         }
         function send() {
             ws.send(document.getElementById('chat').value);
@@ -19,6 +20,7 @@
         <input id="chat">
         <button onclick="send()">send</button>
     </div>
+
 </body>
 
 </html>
