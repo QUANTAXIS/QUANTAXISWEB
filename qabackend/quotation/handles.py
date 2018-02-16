@@ -20,7 +20,7 @@ class INDEX(RequestHandler):
         self.render("index.html")
 
 
-class REALTIME(WebSocketHandler):
+class RealtimeSocketHandler(WebSocketHandler):
     def open(self):
         print('socket start')
 
@@ -31,7 +31,7 @@ class REALTIME(WebSocketHandler):
         print('connection close')
 
 
-class SIMULATED(WebSocketHandler):
+class SimulateSocketHandler(WebSocketHandler):
     def open(self):
         self.write_message('start')
 
@@ -51,8 +51,8 @@ if __name__ == '__main__':
     app = Application(
         handlers=[
             (r"/", INDEX),
-            (r"/realtime", REALTIME),
-            (r"/simulate", SIMULATED)
+            (r"/realtime", RealtimeSocketHandler),
+            (r"/simulate", SimulateSocketHandler)
         ],
         debug=True
     )
