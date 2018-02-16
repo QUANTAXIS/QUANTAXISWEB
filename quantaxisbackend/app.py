@@ -2,11 +2,13 @@
 
 import tornado
 from tornado.web import Application, RequestHandler, authenticated
-from data.handles import StockdayHandler, StockminHandler
-from quotation.handles import RealtimeSocketHandler, SimulateSocketHandler
-from user.handles import SigninHandler, SignupHandler
+from quantaxisbackend.data.handles import StockdayHandler, StockminHandler
+from quantaxisbackend.quotation.handles import RealtimeSocketHandler, SimulateSocketHandler
+from quantaxisbackend.user.handles import SigninHandler, SignupHandler
+from quantaxisbackend.util.handles import BaseHandler
 
-class INDEX(RequestHandler):
+
+class INDEX(BaseHandler):
     def get(self):
         self.render("index.html")
 

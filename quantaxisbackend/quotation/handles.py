@@ -1,10 +1,15 @@
 # coding:utf-8
 import os
+import time
+
 import tornado
 from tornado.web import Application, RequestHandler, authenticated
 from tornado.websocket import WebSocketHandler
+
 import QUANTAXIS as QA
-import time
+from quantaxisbackend.util.handles import BaseHandler
+
+
 """
 要实现2个api
 
@@ -15,7 +20,7 @@ import time
 """
 
 
-class INDEX(RequestHandler):
+class INDEX(BaseHandler):
     def get(self):
         self.render("index.html")
 

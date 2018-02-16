@@ -9,9 +9,10 @@ from tornado.websocket import WebSocketHandler
 
 from QUANTAXIS.QASU.user import QA_user_sign_in, QA_user_sign_up
 from QUANTAXIS.QAUtil.QASql import QA_util_sql_mongo_setting
+from quantaxisbackend.util.handles import BaseHandler
 
 
-class SignupHandler(RequestHandler):
+class SignupHandler(BaseHandler):
     def get(self):
         username = self.get_argument('user', default='admin')
         password = self.get_argument('password', default='admin')
@@ -21,7 +22,7 @@ class SignupHandler(RequestHandler):
             self.write('WRONG')
 
 
-class SigninHandler(RequestHandler):
+class SigninHandler(BaseHandler):
     def get(self):
         username = self.get_argument('user', default='admin')
         password = self.get_argument('password', default='admin')

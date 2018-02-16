@@ -10,11 +10,7 @@ from tornado.websocket import WebSocketHandler
 from QUANTAXIS.QAFetch.QAQuery import QA_fetch_stock_day, QA_fetch_stock_min
 from QUANTAXIS.QAFetch.QAQuery_Advance import QA_fetch_stock_day_adv
 from QUANTAXIS.QAUtil.QATransform import QA_util_to_json_from_pandas
-
-
-class BaseHandler(RequestHandler):
-    def get_current_user(self):
-        return self.get_secure_cookie("user")
+from quantaxisbackend.util.handles import BaseHandler
 
 
 class StockdayHandler(BaseHandler):
