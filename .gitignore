@@ -1,3 +1,8 @@
 # QUANTAXIS Logs
 
 *.log
+dist/
+*__pycache__/
+*.pyc
+*.egg-info/
+build/

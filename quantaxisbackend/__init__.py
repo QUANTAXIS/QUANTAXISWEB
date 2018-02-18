@@ -26,3 +26,4 @@ from quantaxisbackend.data.handles import StockdayHandler, StockminHandler
 from quantaxisbackend.quotation.handles import RealtimeSocketHandler, SimulateSocketHandler
 from quantaxisbackend.user.handles import SigninHandler, SignupHandler
 from quantaxisbackend.util.handles import BaseHandler
+from quantaxisbackend.app import start
